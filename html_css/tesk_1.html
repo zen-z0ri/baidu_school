@@ -1,5 +1,5 @@
 <!--This is a html page that for the XiaoWei school task one-->
-<!--The task introdcution is shown as task_1_1_1.jpg in Chinese-->
+<!--The task introdcution is shown as task_1_1_1.jpg-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +7,17 @@
     <meta name="Author" content="Zenzori"/>
     <meta name="Keyword" content="html css web basic" />
     <title>The task one in XiaoWei school</title>
+    <link rel="stylesheet" href="css/some.css">
+    <script src="js/some.js"></script>
 </head>
 <body>
     <header>
         <h1>This is the first level header.</h1>
+        <h1></h1>
+        <p>This is the publish date: <time></time></p>
     </header>
-
-    <nav>
+    <!--adding the ARIA role="navigation" is advised.-->
+    <nav role="navigation">
         <ul>
             <li><a href="#01">The guide link one</a></li>
             <li><a href="#02">The guide link two</a></li>
@@ -23,21 +27,65 @@
     </nav>
     <main>
         <article id="01">
-            <h2>The level one article title</h2>
-            <h2>The level two article titile</h2>
-            <p><span>The author name  </span><span>The publish time</span></p>
-            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.T his is a long paragraph. This is a long paragraph. This is a long paragraph. </p>
-            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.This is a long paragraph. This is a long paragraph. This is a long paragraph.<a href="http://ife.baidu.com" target="_blank"> There is a link to the IFE school. </a>This is a long paragraph. This is a long paragraph. This is a long paragraph.</p>
+            <header>   <!--The hgroup is dying?? do not use of hgroup instead of header-->
+                <h2>The level one article title</h2>
+                <h2>The level two article titile</h2>
+            </header>
+            <div>
+                <span>The author name  </span><span>The publish time: <time></time></span>
+            </div>
+            <!--When using html, Avoid Long Code Lines!!!!-->
+            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph.
+            </p>
+            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph.This is a long paragraph.
+                This is a long paragraph. This is a long paragraph.
+                <a href="http://ife.baidu.com" target="_blank"> There is a link to the IFE school. </a>
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                Try to avoid code lines longer than 80 characters. Try to avoid code lines longer than 80 characters.
+                Try to avoid code lines longer than 80 characters. Try to avoid code lines longer than 80 characters.
+                Try to avoid code lines longer than 80 characters. Try to avoid code lines longer than 80 characters.
+                Try to avoid code lines longer than 80 characters. Try to avoid code lines longer than 80 characters.
+                Try to avoid code lines longer than 80 characters. Try to avoid code lines longer than 80 characters.
+            </p>
             <img src="284-02-dota.jpg" alt="The dota picture" height="300" />
-            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.This is a long paragraph. There is a new line<br/>This is a long paragraph.This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.</p>
+            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph.This is a long paragraph.
+                There is a new line<br/>This is a long paragraph.This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph.This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+            </p>
         </article>
 
         <article id="02">
-            <h2>Another level one article title</h2>
-            <h2>Another level two artilcle title</h2>
-            <p><span>The author name  </span><span>The publish time</span></p>
-            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. </p>
-            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph. This is a long paragraph.<a href="http://ife.baidu.com" target="_blank"> There is a link to the IFE school. </a> This is a long paragraph. This is a long paragraph. This is a long paragraph.</p>
+            <header>
+                <h2>Another level one article title</h2>
+                <h2>Another level two artilcle title</h2>
+            </header>
+            <div>
+                <span>The author name  </span><span>The publish time</span>
+            </div>
+            <p>This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a link to Google: <a href="www.google.com">Google</a> This is a long para
+                graph. This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph. This is a long paragraph. This is a long paragraph.
+                This is a long paragraph.
+            </p>
             <img src="284-02-dota.jpg" alt="The dota picture" height="300" />
             <ul>
                 <li>There is the list element one</li>
@@ -48,7 +96,9 @@
 
         <article id="03">
             <h2>Pictures</h2>
-            <!--While the content of the <figure> element is related to the main flow, its position is independent of the main flow, and if removed it should not affect the flow of the document.-->
+            <!--While the content of the <figure> element is related to the main flow,
+            its position is independent of the main flow, and if removed it should not
+            affect the flow of the document.-->
             <figure>
                 <figcaption>Nice picture 1 </figcaption>
                 <img src="284-02-dota.jpg" height="180" />
@@ -92,9 +142,13 @@
         </article>
 
         <article id="04">
-            <h2>The last one article title level one</h2>
-            <h2>The level two article titile</h2>
-            <p><span>The author name  </span><span>The publish time</span></p>
+            <header>
+                <h2>The last one article title level one</h2>
+                <h2>The level two article titile</h2>
+            </header>
+            <div>
+                <span>The author name  </span><span>The publish time</span>
+            </div>
             <ol>
                 <li>Rank one</li>
                 <li>Rank two</li>
@@ -102,13 +156,25 @@
             </ol>
             <p>The table is shown as below. Here we add a attribute: border="1" to make it clear</p>
             <table border="1">
+                <!--diferent from <figcaption>-->
+                <caption>This is a table that talks something.</caption>
+                <colgroup>
+                    <col style="background-color:#6fffcc"/>
+                    <col style="font-size: larger" />
+                    <col />
+                </colgroup>
                 <thead>
                     <tr>
-                        <th>first header</th>
-                        <th>second header</th>
-                        <th>another header</th>
+                        <th>ID</th>
+                        <th>student's name</th>
+                        <th>enroll time</th>
                     </tr>
                 </thead>
+                <!--The tfoot before the tbody!-->
+                <tfoot>
+                    <td>total</td>
+                    <td colspan="2">1000</td>
+                </tfoot>
                 <tbody>
                     <tr>
                         <td>content</td>
@@ -131,44 +197,69 @@
                         <td><a href="#">operation</a></td>
                     </tr>
                 </tbody>
-                <tr>
-                    <td>total</td>
-                    <td colspan="2">1000</td>
-                </tr>
             </table>
         </article>
     </main>
 
     <aside>
-        <h2>This would be a sidebar. This is the sidebar title</h2>
-        <h2>This would be register window</h2>
-        <form action="POST">
-            <label>Please enter your e-mail adress</label>
-            <input type="text" id="address" placeholder="Please enter your e-mail" />
-            <p>Please enter your e-mail using the correct format</p>
-            <lable for="password">Please enter your password：</lable>
-            <input type="password" id="password" placeholder="Please enter" />
-            <lable for="confirm-password">Please reenter your password：</lable>
-            <input type="password" id="confirm-password" maxlength="16" placeholder="Please enter" />
-            <p>The </p>
-            <lable for="gender">gender：</lable>
-            <input type="radio" name="gender" value="male" checked/>male
-            <input type="radio" name="gender" value="female" />female
-            <lable for="city">city：</lable>
-            <select id="city">
-                <option value="Beijing" selected>Beijing</option>
-                <option value="Shenzhen">Shenzhen</option>
-                <option value="Shanghai">Shanghai</option>
-                <option value="Sydney">Sydney</option>
-                <option value="Melbourne">Melbourne</option>
-            </select>
-            <lable for="Habit">Habit：</lable>
-            <input type="checkbox" name="favorite" value="Sports" />Sports
-            <input type="checkbox" name="favorite" value="Art" />Art
-            <input type="checkbox" name="favorite" value="Science" />Science
-            <lable for="description">Perseon Detail：</lable>
-            <textarea name="description" cols="30" rows="2">Please enter your personal detail</textarea>
-            <button class="submit">Submit</button>
+        <header>
+            <h2>This would be a sidebar. This is the sidebar title</h2>
+            <h2>This would be register window</h2>
+        </header>
+        <form method="POST">
+                <fieldset>
+                <!--put multiple form element together-->
+                <legend>This would be a form title</legend>
+                <!--type="text"-->
+                <label>Please enter your e-mail adress</label>
+                <input type="text" id="address" placeholder="Please enter your e-mail" />
+                <p>Please enter your e-mail using the correct format</p>
+
+                <!--type="password"-->
+                <lable for="password">Please enter your password：</lable>
+                <input type="password" id="password" placeholder="Please enter" />
+
+                <!--type=“password”-->
+                <lable for="confirm-password">Please reenter your password：</lable>
+                <input type="password" id="confirm-password" maxlength="16" placeholder="Please enter" />
+                <p>The password's length that you enter should between 6-16!</p>
+
+                <!--type=“radio”-->
+                <lable for="gender">gender：</lable>
+                <input type="radio" name="gender" value="male" checked />male <br/>
+                <input type="radio" name="gender" value="female" />female <br/>
+
+                <!--select-->
+                <lable for="city">city：</lable>
+                <select name="city">
+                    <option value="1" selected>Beijing</option>
+                    <option value="2">Shenzhen</option>
+                    <option value="3">Shanghai</option>
+                    <option value="4">Sydney</option>
+                    <option value="5">Melbourne</option>
+                </select>
+
+                <label for="favoratePerson"> Favorate person</label>
+                <input type="text" name="person" list="favoratePerson"/>
+                <datalist id="favoratePerson">
+                    <option>Donald Knuth</option>
+                    <option>Linus</option>
+                    <option>K&R</option>
+                    <option>Richard Stallman</option>
+                </datalist>
+
+                <!--type:checkbox-->
+                <lable for="Habit">Habit：</lable>
+                <input type="checkbox" name="favorite" value="Sports" />Sports
+                <input type="checkbox" name="favorite" value="Art" />Art
+                <input type="checkbox" name="favorite" value="Science" />Science
+                <lable for="description">Perseon Detail：</lable>
+
+
+                <textarea name="description" cols="30" rows="2">Please enter your personal detail</textarea>
+                <button class="submit">Submit</button>
+                <button class="reset">Reset</button>
+            </fieldset>
         </form>
     </aside>
     <footer>
