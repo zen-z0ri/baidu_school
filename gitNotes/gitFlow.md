@@ -25,9 +25,16 @@ The referrence:
 ## 4. The basic github workflow 
 When you are using github, the work flow is shown as below:
 
-<img src="./bg2015080501.png" width="400"/>
+<img src="./bg2015080501.png" width="450"/>
 
 1. Fork others' work on github
+2. ```$ mkdir ./path``` //create the working path
+3. ```$ git init``` 
+4. ```$ git remote add origin [url]```//or replace 2,3,4 steps with ```$ git clone```
+5. ```$ git checkout -b [My Branch]```//initial a new branch from the master
+6. Make changes
+7. ```$ git add .```, ```$ git commit -m "XXX" ```...
+8. 
 
 ## 5. Add or remove files
 1. ```$ git add [file1] [file2] ...```<br/>
@@ -36,4 +43,34 @@ When you are using github, the work flow is shown as below:
 3. ```$ git mv [name1] [name2]```//change the name and make the operation to the stage
 
 ## 6. Information
-1. ```$ git status```
+1. ```$ git status ``` //show the information of current status `most use one!`, 
+2. ```$ git log``` // show the commit history of current branch
+3. ```$ git log --graph``` // with graph version
+4. ```$ git log --oneline```// show in one line
+5. ```$ git diff```// show the difference between the working space and stage
+6. ```$ git diff HEAD```// show the difference between the working space and newest commit 
+
+## 7. Undoing changes
+1. ```$ git checkout [branch]```//change the branch
+2.  ```$ git checkout [file]```//Undoing the changes from stage to working sapce
+3.  ```$ git checkout [commit] [file]``` //Undoing the changes from some commit to working sapce
+4.  ```$ git reset [commit]``` //reset the working space from some commit
+5.  ```$ git reset --hard [commit]```// reset both the stage and working space from some commit 
+
+## 8. Branches
+1. ```$ git branch``` // list the local branch
+2. ```$ git branch -a``` // list both the local branch and remote branch
+3. ```$ git branch --track [branch] [remote-branch]``` //set a new branch and track the remote-branch
+4. ```$ git branch -d [branch]```// 
+5. ```$ git push origin :[branch]```// remove the remote branch
+6. ```$ git merge --no-ff [branch]```//Merge the specified branch into the current branch
+
+## 9. Remote
+
+1. ```$ git remote -v ```//show the remote information
+2. ```$ git remote add [name] [url]```
+3. ```$ git pull [remote] [branch]```//==fetch + merge
+4. ```$ git push [remote(origin)] [remoteBranch]:[branch]```
+
+ 
+
