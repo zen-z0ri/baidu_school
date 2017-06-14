@@ -1,7 +1,8 @@
 <!--This is a html page that for the XiaoWei school task one-->
 <!--The task introdcution is shown as task_1_1_1.jpg-->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- <html> element is sometimes called the root element-->
+<!--The <head> contains descriptive elements about thedocument-->
 <head>
     <meta charset="UTF-8"/>
     <meta name="Author" content="Zenzori"/>
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="tesk_2.css">
     <script src="js/some.js"></script>
 </head>
+<!--<header> <nav> <main> <aside> <footer>-->
 <body>
     <!--adding the ARIA role="navigation" is advised.-->
     <nav role="navigation">
@@ -157,12 +159,13 @@
                 <li>Rank three</li>
             </ol>
             <p>The table is shown as below. Here we add a attribute: border="1" to make it clear</p>
+            <!--take care of rowspan and colspan -->
             <table border="1">
                 <!--diferent from <figcaption>-->
                 <caption>This is a table that talks something.</caption>
                 <colgroup>
                     <col style="background-color:#6fffcc"/>
-                    <col style="font-size: larger" />
+                    <col style="font-size: large" />
                     <col />
                 </colgroup>
                 <thead>
@@ -174,8 +177,10 @@
                 </thead>
                 <!--The tfoot before the tbody!-->
                 <tfoot>
-                    <td>total</td>
-                    <td colspan="2">1000</td>
+                    <tr>
+                        <td>total</td>
+                        <td colspan="2">1000</td>
+                    </tr>>
                 </tfoot>
                 <tbody>
                     <tr>
@@ -194,6 +199,14 @@
                         <td><a href="#">operation</a></td>
                     </tr>
                     <tr>
+                        <td rowspan="2">content</td>
+                        <td colspan="2">content</td>
+                    </tr>
+                    <tr>
+                        <td>content</td>
+                        <td><a href="#">operation</a></td>
+                    </tr>
+                    <tr>
                         <td>content</td>
                         <td>content</td>
                         <td><a href="#">operation</a></td>
@@ -208,8 +221,8 @@
             <h2>This would be a sidebar. This is the sidebar title</h2>
             <h2>This would be register window</h2>
         </header>
-        <form method="POST">
-                <fieldset>
+        <form method="POST" action="/urlDoSomething">
+            <fieldset>
                 <!--put multiple form element together-->
                 <legend>This would be a form title</legend>
                 <!--type="text"-->
@@ -269,3 +282,12 @@
     </footer>
 </body>
 </html>
+
+<!--
+The difference:
+    <link rel="stylesheet" href="tesk_2.css">
+    <a href="productX.html#reviews">Reviews for product X</a>
+
+    <img src="images/central-park.jpg" alt="Central Park" />
+    <script type="text/javascript" src="js/some.js"></script>
+-->

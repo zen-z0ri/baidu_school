@@ -83,6 +83,7 @@ console.log('now testb is '+b);
 
 /**
  * iv) reverse()
+ *      change the original array
  */
 console.log('***********.reverse()***********');
 //return to the reverse Array
@@ -139,7 +140,8 @@ console.log(c.sort((x, y) =>
 
 /**
  * vii) concat()  accept multiple value
- * does not affect original
+ *      does not affect original
+ *      the same as the String
  */
 console.log('***********.concat()***********');
 // return the new concat array
@@ -167,11 +169,12 @@ console.log('***********.splice()***********');
 
 
 /**
- * x) 1. find() find the first element that satisfy condition
+ * x) 1. find(callback) find the first element that satisfy condition
  *    2. findIndex(ele) find the first idex of a ele
  *    3. indexOf() return the indexof ele
  *      can be used in String
- *    4. includes(ele) return boolean if
+ *    4. includes(ele) return boolean if includes
+ *      can be used in String
  */
 console.log('***********.find()***********');
 console.log([1, 4, -5, 10].find((n) => (n < 0)));

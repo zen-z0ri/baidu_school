@@ -36,7 +36,6 @@ nav ul li {
     padding:20px 10px;
 }
 nav a{
-
     display: block;
     color: #fff;
     text-align: center;
@@ -64,12 +63,27 @@ main li{
     margin: inherit;
 }
 article{
-    margin: 10px;
-    padding: 5px;
+    margin: 15px;
+    padding: 10px;
     border: 1px solid #aeaeae;
     background: #fff;
     box-shadow: 1px 1px 1px #aeaeae;
     border-radius: 10px;
+}
+article img {
+    width: 50%;
+}
+#01 {
+    font-weight: bold;
+}
+article ol{
+    margin: 10px;
+}
+article ul{
+    margin: 10px;
+}
+figure figcaption{
+    margin: 15px 0;
 }
 aside {
     margin: 10px;

@@ -138,22 +138,6 @@ console.log(temp[2])
 
 
 
-/*
- * regExp
- * flag: g --> global, i --> insensitive, m --> multiline
- */
-// var pat1 = /[bc]*./i;
-// var pat2 = new RegExp("[\\w]+","ig");
-// // use pattern.exec(text)  pattern.test(text) --> boolean
-// var a = "mom aNd dAd aNd baby";
-// var a = "mom aNd dAd ";
-// var pat3 = /mom( and dad (and baby)?)?/ig;
-// var matches = pat3.exec(a); //!! store in an array the pattern result
-// alert(matches.length);
-// alert(matches[0]);
-// alert(matches[1]);
-// alert(matches[2]);
-// use g model to search multiple times
 
 // /**
 //  * function
@@ -198,7 +182,7 @@ console.log(temp[2])
  * there are two methods of function
  * .call()   and     .aplly()
  */
-// var numbers = [[5, [6,2]], [2,[4,[4,5]]], 3, 7];
+const numbers = [[5, [6,2]], [2,[4,[4,5]]], 3, 7];
 // // //why [] ??  that's because that the initial value
 // const flatten = arr => arr.reduce( (acc, val) => acc.concat(Array.isArray(val)?flatten(val):val),[]);
 // alert(flatten(numbers));

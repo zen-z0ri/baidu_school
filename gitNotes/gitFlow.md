@@ -25,7 +25,7 @@ The referrence:
 ## 4. The basic github workflow 
 When you are using github, the work flow is shown as below:
 
-<img src="./bg2015080501.png" width="450"/>
+<img src="./bg2015080501.png" width="390"/>
 
 1. Fork others' work on github
 2. ```$ mkdir ./path``` //create the working path
