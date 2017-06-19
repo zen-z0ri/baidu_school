@@ -139,7 +139,7 @@ HTTP/2 will support the **connection Pepiline**
 ## 4. Render 
 ### 4.1 Rendering Process
 1. Process **HTML** elements --> the **DOM** tree (Without meta) --> **Blue line**(DOM ready).
-2. ***After*** build the DOM, the **request of the objects**(like ```<link> <javascript> <a> <img>```).
+2. ***While*** build the DOM, the **request of the objects**(like ```<link> <javascript> <a> <img>```).
 3. After receiving CSS, process **CSS** file --> the **CSSOM** tree (Only body);
 <br /> At both time, fetch the **JS** file.
 4. Combine the **DOM** and **CSSOM** --> a **render tree** (Only body);

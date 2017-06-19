@@ -8,8 +8,8 @@
     <meta name="Author" content="Zenzori"/>
     <meta name="Keyword" content="html css web basic" />
     <title>The task one in XiaoWei school</title>
-    <link rel="stylesheet" href="tesk_2.css">
-    <script type='text/javascript' src="js/some.js"></script>
+    <link type="text/css" rel="stylesheet" href="tesk_2.css">
+    <script type="text/javascript" src="js/some.js"></script>
 </head>
 <!--<header> <nav> <main> <aside> <footer>-->
 <body>
@@ -31,9 +31,9 @@
         <article id="01">
             <header>   <!--The hgroup is dying?? do not use of hgroup instead of header-->
                 <h2>The level one article title</h2>
-                <h2>The level two article titile</h2>
+                <h3>The level two article titile</h3>
             </header>
-            <div>
+            <div class="title-info">
                 <span>The author name  </span><span>The publish time: <time>2017.5.14</time></span>
             </div>
             <!--When using html, Avoid Long Code Lines!!!!-->
@@ -71,9 +71,9 @@
         <article id="02">
             <header>
                 <h2>Another level one article title</h2>
-                <h2>Another level two artilcle title</h2>
+                <h3>Another level two artilcle title</h3>
             </header>
-            <div>
+            <div class="title-info">
                 <span>The author name  </span><span>The publish time</span>
             </div>
             <p>This is a long paragraph. This is a long paragraph. This is a long paragraph.
@@ -148,9 +148,9 @@
         <article id="04">
             <header>
                 <h2>The last one article title level one</h2>
-                <h2>The level two article titile</h2>
+                <h3>The level two article titile</h3>
             </header>
-            <div>
+            <div class="title-info">
                 <span>The author name  </span><span>The publish time</span>
             </div>
             <ol>
@@ -158,10 +158,10 @@
                 <li>Rank two</li>
                 <li>Rank three</li>
             </ol>
-            <p>The table is shown as below. Here we add a attribute: border="1" to make it clear</p>
+            <p>The table is shown as below. Here we add a attribute: border="1" to make it clear </p>
             <!--take care of rowspan and colspan -->
-            <table border="1">
-                <!--diferent from <figcaption>-->
+            <table>
+                <!--diferent from  <figcaption>   -->
                 <caption>This is a table that talks something.</caption>
                 <colgroup>
                     <col style="background-color:#6fffcc"/>
@@ -219,7 +219,7 @@
     <aside>
         <header>
             <h2>This would be a sidebar. This is the sidebar title</h2>
-            <h2>This would be register window</h2>
+            <h3>This would be register window</h3>
         </header>
         <form method="POST" action="/urlDoSomething">
             <fieldset>
@@ -285,7 +285,7 @@
 
 <!--
 The difference:
-    <link rel="stylesheet" href="tesk_2.css">
+    <link type="text/css" rel="stylesheet" href="tesk_2.css">
     <a href="productX.html#reviews">Reviews for product X</a>
 
     <img src="images/central-park.jpg" alt="Central Park" />
