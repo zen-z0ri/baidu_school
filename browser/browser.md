@@ -1,16 +1,16 @@
-# The browser
-
-[]
+[TOC]
+ 
+# The browser 
 
 ---
 ## 1. URL (Uniform resource locator)
 |Protocol|Domain name|Path Name|
 
-<img src="./url.png" height="60" />
+<img src="./url.png" height="60px" />
 
 ### 1.1 The URL domain level
 
-<img src="./domainLevel.png" height="100" />
+<img src="./domainLevel.png" height="100px" />
 
 ### 1.2 There three methods to find a parameter in express:
  * req.params
@@ -33,7 +33,7 @@ http://localhost:3000/users/34/books/8989
 With **GET**
 Given this route:
 ```javascript
-app.get('/users/:userId/books/:bookId',function(req,res){});
+app.get('/usersbooks',function(req,res){});
 ```
 Given this URL  
 ```
@@ -146,6 +146,8 @@ HTTP/2 will support the **connection Pepiline**
 <br />Only elements that will be displayed appear in the render tree (**Start from <body>**).
 5. Run layout on the render tree to compute geometry of each node --> **Red line**(Present Page).
 
+<img src="parserTree.png" height="230px" />
+
 **DOM**
 * Each element inside a HTML document is represented as a node.
 * **Attributes** and **Text** between a pair of tags are also nodes.
@@ -179,3 +181,41 @@ render/parser;
 2. **Minify** the CSS and JS would help improve performance.
 3. Use asynchronous script to prevent JS parser blocking.
 <br /> Use ```<link href="style.css" rel="stylesheet" media="print">``` to prevent CSS render block
+
+<img src="RTT.png" height="" />
+
+---
+## 5. Security
+
+### 5.1 Requirement
+1. **Authentication**
+provides a way of identifying a user, typically by having the user enter a valid user name and 
+valid password before access is granted.
+2. **Authorization** specify what the user are allowed to do/see.
+3. **Confidentiality** No one can look at the information. 
+4. **Data Integrity** No one can mess with legal user’s data and communication.
+
+### 5.2 Apply
+1. Authentication can be applied by **own sign up form** and **third-party (OpenID)**
+2. **OpenID vs OAuth**: OAuth will not shared the client information to the third-party.
+<br /><img src="OAuth.png" height="250px" />
+* **passport** module makes it easy to use many popular third party services through various strategies.
+* **acl** module provides simple role based authorization implementation.
+
+### 5.3 Encryption
+1. **Symetric** and **Asymetric**
+* Asymmetric way use public key and private key:
+* Public key for others and to encrypt the message.
+* Private key for self-keep and to decrypt the message. 
+2. **Digital Certificate**
+* Use Hash function to get message digest.
+* Use private key to encrypt the digest to prevent others to change the content.
+3. **Certificate Authority (CA)**
+* In case hacker change the public key to pretend to sender.
+* CA is pulic known center and his public key can search in the internet (**Cant be pretended by hacker**).
+* Use CA's private key and sender's public key to encrypt.
+* Receiver can use CA's public key to get the sender's public key.
+**As CA's public key can't be pretend, it's well-know for everyone**
+    
+### 5.4 Transport Layer Security and SSL
+<img src="transportLayerSecurity.png" height="180px">
