@@ -29,6 +29,7 @@ http://localhost:3000/users/34/books/8989
 **req.params**<br/>
  * req.params.userId
  * req.params.bookId
+ 
 #### 1.2.2 req.query
 With **GET**
 Given this route:
@@ -42,6 +43,7 @@ url: http://localhost:3000/usersbooks?userId=34&bookId=8989
 **req.query**<br/>
  * req.query.userId
  * req.query.bookId
+ 
 #### 1.2.3 req.body
 MUST use **POST**
 Data {userId:34, bookId:8989} is sent as part of request body
@@ -75,7 +77,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 1. GET change the url and all information in url , POST put information into the **Request body** (hidden from user).
 2. GET will create one TCP packet, POST will create two; (GET is more **efficient** and POST **safer**).
 3. GET would be **auto**-cashed (stored in cache, history, or bookmarks), POST not.
-4. GET size is limited by the **url**, POST not.
+4. GET size is limited by the **url**, POST not (but also limited by the browser).
 5. **Semantically**, GET just fetch data on the server, POST change the data.
 
 #### 2.1.2 With HTML form
@@ -129,22 +131,25 @@ HTTP/2 will support the **connection Pepiline**
 ---
 ## 3. Caching in HTTP
 ### 3.1 Expiration Model
-* Eliminate the need to send requests.
-* Reduce the number of network round-trips required for many operations.
+* Eliminate the need to **send requests**.
+* **Reduce the number of network round-trips** required for many operations.
 ### 3.2 Validation Model
-* Eliminate the need to send requests.
-* Reduce network bandwidth requirements.
+* Eliminate the need to **get full responses** in many other cases.
+* **Reduce network bandwidth** requirements.
 
 ---
 ## 4. Render 
 ### 4.1 Rendering Process
-1. Process **HTML** elements --> the **DOM** tree (Without meta) --> **Blue line**(DOM ready).
-2. ***While*** build the DOM, the **request of the objects**(like ```<link> <javascript> <a> <img>```).
+1. **Request** the HTML --> Process **HTML** elements --> the **DOM** tree (Without meta) --> **Blue line**(DOM ready).
+2. ***While*** parser reach the **request of the objects**(like ```<link> <javascript> <a> <img>```), download it.
+    * After receiving **JS**, stop DOM construct, fetches executes it, and the parser can move on (Parser blocking).
+    * When the parser sees a **CSS** to load, it issues the request to the server, and moves on. 
+    If there are other resources to load, these can all be fetched in parallel 
 3. After receiving CSS, process **CSS** file --> the **CSSOM** tree (Only body);
-<br /> At both time, fetch the **JS** file.
-4. Combine the **DOM** and **CSSOM** --> a **render tree** (Only body);
+4. Both external CSS and JS should be executed **before DOM been built** (blocking occur).
+5. Combine the **DOM** and **CSSOM** --> a **render tree** (Only body);
 <br />Only elements that will be displayed appear in the render tree (**Start from <body>**).
-5. Run layout on the render tree to compute geometry of each node --> **Red line**(Present Page).
+6. Run layout on the render tree to compute geometry of each node --> **Red line**(Present Page).
 
 <img src="parserTree.png" height="230px" />
 
@@ -180,9 +185,9 @@ render/parser;
     * Using **external** JS/CSS faster pages because the files are **cached** by the browser
 2. **Minify** the CSS and JS would help improve performance.
 3. Use asynchronous script to prevent JS parser blocking.
-<br /> Use ```<link href="style.css" rel="stylesheet" media="print">``` to prevent CSS render block
+<br /> Use media detect```<link href="style.css" rel="stylesheet" media="print">``` to prevent CSS render block
 
-<img src="RTT.png" height="" />
+<img src="RTT.png" height="190px" />
 
 ---
 ## 5. Security
@@ -219,3 +224,10 @@ valid password before access is granted.
     
 ### 5.4 Transport Layer Security and SSL
 <img src="transportLayerSecurity.png" height="180px">
+
+## 6. Server Related
+### 6.1 HTTP Request Processing
+* Persistent connection
+* Multiple requests arrive in one connection
+* Server needs to ensure that responses are sent back in the order of request arrival
+

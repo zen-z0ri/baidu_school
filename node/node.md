@@ -37,14 +37,16 @@
 * The **global** scope
     * In the browser, global level is bind with **window** (or in jQuery **document**)
     * In the Node.js, the global level is bind with **global** object.
-## 3. Path
+## 3. Path in express and node
 1. In node.js, **require()** is always anchor in the **current module's working dir**.
-2. However, most other functions require path is anchor in the **run-time dir** 
+2. However, **most** other functions(like fs...) require path is anchor in the **run-time dir** 
 <br /> We can test use: ```console.log(cwd())```;
 3. In express, we can do:
 <br /> ``` app.set('views', path.join(__dirname,'app/views'));```
 <br /> That set the 'views' variable. 
-<br /> When```res.render(path, data)``` it search under this path.
+<br /> When```res.render('path', data)```, the path it search under this views.
+    * When we use http method, the **action** attribute of form will give the **full url**(/revision/getLatest)
+    * Router will route it to (/getLatest) **exclude the router wdr** ```app.use('/revision',revroutes);```
 4. In express, we also do:
 ```app.use(express.static(path.join(__dirname, 'public')));```
 <br />That set the static variable. when the views need contain static meterial: figs, CSS or js... it search under this 'express.static' variable

@@ -39,8 +39,18 @@ When you are using github, the work flow is shown as below:
 ## 5. Add or remove files
 1. ```$ git add [file1] [file2] ...```<br/>
  ```$ git add . ``` 	   // add all files in current dir
-2. ```$ git rm [file1] [file2] ...```//delete the files and make the operation to the stage
+2. ```$ git rm [file1] [file2] ...``` //delete the files and make the operation to the stage
+<br />```$ git rm --cached [file1] [file2] ...``` //just **stop tracking** the file 
 3. ```$ git mv [name1] [name2]```//change the name and make the operation to the stage
+4. To delete the local commits: 
+    * ```bash
+        $ git reset --hard [commit] // to the commit you like
+    ``` 
+5. To delete the remote commits:
+     * ```bash
+        $ git reset --hard [commit] // to the commit you like in local
+        $ git push --force origin master //delete remote
+     ``` 
 
 ## 6. Information
 1. ```$ git status ``` //show the information of current status `most use one!`, 
@@ -61,7 +71,8 @@ When you are using github, the work flow is shown as below:
 1. ```$ git branch``` // list the local branch
 2. ```$ git branch -a``` // list both the local branch and remote branch
 3. ```$ git branch --track [branch] [remote-branch]``` //set a new branch and track the remote-branch
-4. ```$ git branch -d [branch]```// 
+4. ```$ git branch -d [branch]```// delete branch 
+<br />   ```$ git branch -D [branch]```// force delete branch
 5. ```$ git push origin :[branch]```// remove the remote branch
 6. ```$ git merge --no-ff [branch]```//Merge the specified branch into the current branch
 
@@ -72,5 +83,9 @@ When you are using github, the work flow is shown as below:
 3. ```$ git pull [remote] [branch]```//==fetch + merge
 4. ```$ git push [remote(origin)] [remoteBranch]:[branch]```
 
- 
+## 10. Detached HEAD
 
+1. Build a temp branch ```$ git branch temp``` 
+<br />//This make the current detached content to the temp branch
+2. Back to the master/dev branch: ```$ git checkout master```
+3. Merge temp to the master: ```$ git merge temp```

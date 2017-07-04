@@ -2,12 +2,12 @@
  * Created by tung on 16/06/17.
  */
 /*
- * the object value
+ * the object value , see also class
  */
 var o1 = new Object();  // null
 var o2 = {}; //Best practice
 let people = {
-    "name" : "ydon",
+    "name" : "ydon", //prefer field name with "", like JSON
     gender : "male",
     age : 23,
     print : function () {
@@ -16,12 +16,10 @@ let people = {
     }
 };
 
- // there is two ways to represent the attributes
+// there is two ways to represent the attributes
 console.log(people.name);
-// alert(people["name"]);
-// alert(people.print());
-// //noinspection JSAnnotator
-//
+console.log(people["name"]);
+console.log(people.print());
 // function displayInfo(inpu) {
 //     let output = "";
 //     if(typeof inpu.name === "string"){
@@ -39,3 +37,6 @@ console.log(people.name);
 // displayInfo({
 //     name : "zhazha"
 // });
+/**
+ * Because JSON field name must be quoted, it better to use quoted in js object
+ */

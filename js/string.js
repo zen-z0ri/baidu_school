@@ -77,14 +77,32 @@ console.log(found);
 
 
 /**
- * vii) .replace(regexp|substr ,"smString" ) change the origin!!!
+ * vii) .replace(regexp|substr ,"smString" ) **not** change the origin!!!
+ *
  */
 console.log('****************.replace()****************');
+/**
+ * str.replace(regexp|substr, newSubstr|callback|pattern);
+ *
+ */
 re = /(\w+)\s(\w+)/;
 str = 'John Smith';
-var newstr = str.replace(re, '$2, $1');
+newstr = str.replace(re, '$2 $1'); // It's a pattern the call bakck
 console.log(newstr);  // Smith, John
+console.log(str);
+console.log('*********************************************');
 
+re1 = /^(\d{4})(\W*)(\d{2})(\W*)(\d{2})(\W*)/;
+str1 = '1898-*^(@@11-*^(*21*(*';
+newstr1 = str1.replace(re1, '$1***$3***$5_____($2$3$4)');
+console.log(newstr1);
+console.log(str1)
+console.log('*********************************************');
+
+str = 'Twas the night before Xmas...';
+newstr = str.replace(/xmas/i, 'Christmas');
+console.log(str);
+console.log(newstr);  // Twas the night before Christmas..
 /**
  * !!!These methods can use RegExP()
  *      match(), replace(), search(), split()

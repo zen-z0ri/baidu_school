@@ -1,6 +1,4 @@
-/**
- * Created by tung on 3/05/17.
- */
+
 /**
  *  1. first check if the variable is a local one: if its copy by outside
  *  2. <declare nearest principle>, even the parent chain have it, where its nearest declaration used
@@ -234,6 +232,3 @@ const numbers = [[5, [6,2]], [2,[4,[4,5]]], 3, 7];
 //     return acc;
 // }
 // alert(flatten(numbers));
-
-
-//----------------------------------------------------

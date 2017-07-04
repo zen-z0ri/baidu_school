@@ -198,7 +198,7 @@ console.log([1, 4, -5, 10].find((n) => (n < 0)));
  * 5. forEach(ele, idx, array => )
  *      --> no return value just do something for each
  *          map, set also have forEach()
- * 6. reduce(acc, ele,  idx, array, initVal)
+ * 6. reduce(acc, ele, idx, array, initVal)
  *      --> return a single a value
  *      accept five perameter: accumulator, ele,  idx, and array,  and
  *      initial value
