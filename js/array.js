@@ -8,11 +8,18 @@ let a = [];
 let b = ["ss", 2, 5];
 let c = new Array();
 var d = new Array("bob", "alice", "chris");
-var e = Array.of(1, 2, 3);
-//to check if it's an array
+var e = Array.of(1, 2, 3,...[1,3,3]); //[ 1, 2, 3, 1, 3, 3 ]
+var f = Array.from("fdsfsd");
+
+
+/**
+ * to check if it's an array
+ */
 console.log(Array.isArray(a)); //true
 console.log(a instanceof Array); //true
 console.log('**********************');
+
+
 /**
  * use .length to add a new element
  */
@@ -26,10 +33,12 @@ console.log('the last of b: '+b[b.length-1]);
 if(b instanceof Array){
     console.log('b is an array!!!');
 }
+
+
 // print to String
-console.log('b toString() return to a String');
+console.log('*******b toString() return to a String*******');
 console.log(b.toString()); //return to a String with no []
-console.log('b valueOf() return to an array == b');
+console.log('*******b valueOf() return to an array == b*******');
 console.log(b); //return to an array
 
 
@@ -48,17 +57,17 @@ console.log(b.join("--"));// ss--2--5--haha
 console.log('***********.push & .pop***********');
 /**
  * !!!push() return the length of new array
- *    and change the array
+ *    and change the original array
  * that's way we use
  *      a = ['s','f'];
  *      b = [];
- *      b.push(a);//or Array.prototype.push.call(b, a);
+ *      b.push(...a);//or Array.prototype.push.apply(b, a);
  *      console.log(b);//[ [ 's', 'f' ] ]
  * not
  *      b = [].push(a);
  *      console.log(b);//1
  * !!!pop() return the last element of array
- *          and change the array
+ *          and change the original array
  */
 console.log('the length of new array: '+b.push(2,3,"heng"));
 console.log(b);
@@ -95,7 +104,7 @@ console.log(b);
 /**
  * reverse a String
  * let test = 'sdsfsfdsfsdfxcxvxz'
- * let test = test.split('').reverse().join('');
+ * let arr = Array.from(test).reverse().join(); //let arr = test.split('').reverse().join('');
  * 1. String to Array
  *       let a = s.split('')  ---> like JAVA
  *    in js6 we use
@@ -110,7 +119,7 @@ console.log(b);
  * v) any array-like object or iterable like Set and Map
  *    or DOM
  *    let ps = document.querySelectorAll('p');
- *      Array.from(ps).forEach(function (p) {
+ *    Array.from(ps).forEach(function (p) {
  *      console.log(p);
  *    });
  */
@@ -140,8 +149,8 @@ console.log(c.sort((x, y) =>
 
 /**
  * vii) concat()  accept multiple value
- *      does not affect original
- *      the same as the String
+ *      does not affect original;
+ *      the same as the String;
  */
 console.log('***********.concat()***********');
 // return the new concat array
@@ -169,8 +178,8 @@ console.log('***********.splice()***********');
 
 
 /**
- * x) 1. find(callback) find the first element that satisfy condition
- *    2. findIndex(ele) find the first idex of a ele
+ * x) 1. find(callback) find the **first element** that satisfy condition
+ *    2. findIndex(ele) find the **first idex** of a ele
  *    3. indexOf() return the indexof ele
  *      can be used in String
  *    4. includes(ele) return boolean if includes
@@ -192,7 +201,7 @@ console.log([1, 4, -5, 10].find((n) => (n < 0)));
  * 2. some(ele, idx, array => )
  *      --> return boolean : if any element is fit the rule
  * 3. filter(ele, idx, array => )
- *      --> return an array of eles that accoding the rules
+ *      --> return an array of eles that according the rules
  * 4. map(ele, idx, array => )
  *      --> return a new array which is the result of each elements
  * 5. forEach(ele, idx, array => )
