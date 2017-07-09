@@ -2,10 +2,13 @@
  * Created by tung on 2/07/17.
  */
 /**
- * ES6 allow that use the field to declare the object
+ * ES6 allow that use the field name to declare the object
  */
 var fieldA = 'bar';
-var obj1 = {fieldA}; //{'fieldA' : 'bar'};
+var obj1 = { fieldA,
+            'name': 'foo',
+            'age': 23}; //{ fieldA: 'bar', name: 'foo', age: 23 }
+console.log(obj1);
 
 
 /**
@@ -79,27 +82,27 @@ console.log(pA.toString());
 console.log('**************set & get**************');
 class Circle {
   constructor(x, y, r) {
-    this._x = x;
-    this._y = y;
-    this._r = r;
+    this.x = x;
+    this.y = y;
+    this.r = r;
   }
-  get x() {
-    console.log(this._x);
-    return this._x;
+  get getX() {
+    console.log(this.x);
+    return this.x;
   }
-  set x(val) {
-    this._x = val;
+  set setX(val) {
+    this.x = val;
     console.log('setter: '+val);
   }
   info (){
-    return console.log('x: '+this._x+'; '+'y: '+this._y+'; '+'r: '+this._r+'; ');
+    return console.log('x: '+this.x+'; '+'y: '+this.y+'; '+'r: '+this.r+'; ');
   }
 }
 
 let inst = new Circle(1,1,9);
 
-inst.x = 12; // notice that how to use setter
-inst.x; // 'getter'
+inst.setX = 12; // notice that how to use setter
+inst.getX; // 'getter'
 inst.info();
 
 
@@ -139,10 +142,14 @@ class ColorPoint extends Point {
     this.color = color;
   }
   toString() {
-    return this.color + ' ' + super.toString(); // 调用父类的toString()
+    return this.color + ' ' + super.toString(); // invoke the super to string, to override
   }
 }
+let cPoint1 = new ColorPoint(1, 2, 'red');
+console.log(cPoint1.toString());
 
+
+console.log('**************this or super**************');
 class A {
   constructor() {
     this.x = 1;
@@ -164,7 +171,7 @@ class B extends A {
 
 let b = new B();
 b.m; // 2
-////////////////////////////////
+////////////////////////////////notice field use this, while method use super
 class A1 {
   constructor() {
     this.p = 2;

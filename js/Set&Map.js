@@ -9,7 +9,7 @@
  *
  *  Methods
  *  2) Set.prototype.add(value)
- *        Appends **only one** new element.
+ *        Appends ***only one** new element.
  *        Returns the whole Set object.
  *  3) Set.prototype.clear()
  *        Removes all elements from the Set object.

@@ -239,3 +239,21 @@ console.log(d);
 
 console.log('***********.reduce()***********');
 console.log(d.reduce((acc, ele) => (acc+ele)));
+var arr = [1, [[2, 3], 4], [5, 6, [7]]];
+
+const flatten =
+    arr => arr.reduce( //reduce return a single value
+        (acc, val) =>
+            acc.concat(Array.isArray(val) ? flatten(val) : val)
+        , []
+    );
+
+var result = [];
+function flat(arr) {
+  arr.forEach((ele, idx) => //forEach actually no return
+      {Array.isArray(ele) ? flat(ele) : result.push(ele) }
+  );
+  return result;
+}
+
+console.log(flatten(arr));

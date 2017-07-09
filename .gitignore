@@ -11,3 +11,4 @@ gen
 #test file
 /browser/test/
 /js/test.js
+/ng2/test.ts
