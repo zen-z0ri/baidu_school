@@ -119,8 +119,8 @@ Use type annotations for declaration
     
     hello('TungReeboo');
     ```
-4. Change JS :
-   ```ecmascript 6
+4. Change JS:
+  ```ecmascript 6
    class Pizza {
      constructor(toppings) {
        this.toppings = toppings;
@@ -128,6 +128,7 @@ Use type annotations for declaration
    }
    ```
    To Typescript:
+   
    ```typescript
    class Pizza {
      toppings: string[]; //must be declared before use
@@ -137,6 +138,7 @@ Use type annotations for declaration
      }
    }
    ```
+   
 ## 3. Interface
 
 ES6 has class, but don't have interface; TS now has interface.
@@ -248,7 +250,9 @@ class Clock implements ClockInterface {
       }
     }
     ```
+    
     ***TS***
+    
     ```typescript
     class Animal {
       name: string;
@@ -421,34 +425,34 @@ or parameter. Decorators use the form **@expression**.
 ```typescript
 //Define a decorator
 function log(constructor: Function) {
-    console.log(constructor);
-    console.log(constructor.prototype);
+  console.log(constructor);
+  console.log(constructor.prototype);
 }
 //Define another decorator
 function f() {
-    console.log("f(): evaluated");
-    return (target, propertyKey: string, descriptor: PropertyDescriptor) => {
-        console.log("f(): called");
-    }
+  console.log("f(): evaluated");
+  return (target, propertyKey: string, descriptor: PropertyDescriptor) => {
+    console.log("f(): called");
+  }
 }
 ```
 ***Class decorator***
 ```typescript
 //Define a decorator (Class decorator **can only use constructor** as its argument)
 function log(constructor: Function) {
-    console.log(constructor);
-    console.log(constructor.prototype);
+  console.log(constructor);
+  console.log(constructor.prototype);
 }
 // Apply the @log in front of the class(neer it)
 @log   
 class Greeter {
-    greeting: string;
-    constructor(message: string) {
-        this.greeting = message;
-    }
-    greet() {
-        return "Hello, " + this.greeting;
-    }
+  greeting: string;
+  constructor(message: string) {
+    this.greeting = message;
+  }
+  greet() {
+    return "Hello, " + this.greeting;
+  }
 }
 ```
 ***Method Decorator***
@@ -460,24 +464,24 @@ class Greeter {
 * 3. The Property Descriptor for the member.
 */
 function enumerable(value: boolean) {
-    return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-        descriptor.enumerable = value;
-    };
+  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
+    descriptor.enumerable = value;
+  };
 }
 // Apply the @log in front of the class(neer it)   
 class Greeter {
-    greeting: string;
-    constructor(message: string) {
-        this.greeting = message;
-    }
+  greeting: string;
+  constructor(message: string) {
+    this.greeting = message;
+  }
 
-    @enumerable(false)
-    greet() {
-        return "Hello, " + this.greeting;
-    }
+  @enumerable(false)
+  greet() {
+    return "Hello, " + this.greeting;
+  }
 }
 ```
-***Parameter Decorators**
+**Parameter Decorators**
 ```typescript
 
 ```
