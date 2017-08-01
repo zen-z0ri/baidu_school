@@ -17,7 +17,7 @@ var f = Array.from("fdsfsd");
  */
 console.log(Array.isArray(a)); //true
 console.log(a instanceof Array); //true
-console.log('**********************');
+console.log('**********************');//test
 
 
 /**
