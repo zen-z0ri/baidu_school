@@ -20,7 +20,7 @@ const f3 = function() {
   f1();
   f1();
 };
-f2();//2, 3
+f2();//2, 3 not 3,4 --> static
 f3();//4, 5
 console.log("************primative --> stack; reference --> heap****************");
 let obj1 = {

@@ -9,7 +9,6 @@
 console.log("**************apply()***************");
 // min/max number in an array
 let numbers = [5, 6, 2, 3, 7];
-
 // using Math.min/Math.max apply
 let max0 = Math.max.apply(null, numbers);
 console.log(max0);
@@ -46,7 +45,7 @@ function sortNumbers0() {
 console.log(sortNumbers0(1,5,2,21,17,4,3));
 
 const sortNumbers1 = (...numbers) => numbers.sort();
-console.log(sortNumbers1(1,5,2,4,3));
+console.log(sortNumbers1(1,5,2,4,3)); //form a list params to a array
 
 console.log("**************spread***************");
 // ES5

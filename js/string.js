@@ -107,3 +107,12 @@ console.log(newstr);  // Twas the night before Christmas..
  * !!!These methods can use RegExP()
  *      match(), replace(), search(), split()
  */
+
+console.log("*****************reverse a string**************************");
+let test = 'hello world';
+console.log(Array.from(test).reverse().join(""));
+// interator
+console.log(...test);
+for(let i of test){
+	console.log(i)
+}

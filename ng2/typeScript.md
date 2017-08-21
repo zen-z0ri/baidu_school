@@ -1,5 +1,13 @@
 # Typescript
 
+1. Overview
+2. Type annotations
+3. Interface
+4. Class
+5. Function 
+6. Decorators
+7. Used in node.js
+
 ---
 
 ## 1. Overview
@@ -67,6 +75,7 @@ Use type annotations for declaration
         ```
     * any  
         ```typescript
+          //if a permeter is not declare a type, in default it is any. 
          let notSure: any = 4;
          notSure = "maybe a string instead";
          notSure = false; // okay, definitely a boolean
@@ -88,6 +97,11 @@ Use type annotations for declaration
           * However, when using the --strictNullChecks flag, null and undefined
           * are only assignable to void and their own types. 
           */ 
+        ```
+    * never
+        ```typescript
+        
+          //represents the type of values that never occur.
         ```
                  
 2. Object 
@@ -131,7 +145,7 @@ Use type annotations for declaration
    
    ```typescript
    class Pizza {
-     toppings: string[]; //must be declared before use
+     toppings: string[]; //must be declared before use, ES6 don't
        //local variable also need to declare
        constructor(toppings: string[]) {
          this.toppings = toppings;
@@ -141,6 +155,7 @@ Use type annotations for declaration
    
 ## 3. Interface
 
+Interface can have method signarue but not implement.<br/>
 ES6 has class, but don't have interface; TS now has interface.
 ```typescript
 //1. normal interface
@@ -149,7 +164,7 @@ interface SuperConfug {
   width: number;
 }
 
-//2. readonly : for read only, cant assign to them
+//2. readonly : for read only, cant assign to them, just like const of varaible
 /**
  * The easiest way to remember whether to use readonly or const is to
  * ask whether you’re using it on a variable or a property. 
@@ -159,6 +174,9 @@ interface Point {
   readonly x: number;
   readonly y: number;
 }
+let p1: Point = { x: 10, y: 20 };
+p1.x = 5; // error!
+//Variables use const whereas properties use readonly!!!
 
 //3. ? to these attributes is optional. 
 interface SquareConfig {
@@ -177,28 +195,59 @@ function createSquare(config: SquareConfig): {color: string; area: number} {
 }
 let mySquare = createSquare({color: "black"});
 
-//4. function interface
+//4. any properties
+interface Person {
+  name: string;
+  age?: number;
+  [propName: string]: any; //can have any properties
+}
+let xcatliu: Person = {
+  name: 'Xcat Liu',
+  website: 'http://xcatliu.com',
+};
+
+//5. function interface
 interface SearchFunc {
   (source: string, subString: string): boolean;
 }
-let mySearch: SearchFunc;
-mySearch = function(src: string, sub: string): boolean {
-  let result = src.includes(sub);
+let mySearch: SearchFunc = function(src: string, sub: string): boolean {
+  let result: boolean = src.includes(sub);
   return result;
 }
 
-//5. Class types interface
+//6. Class types interface
 interface ClockInterface {
   currentTime: Date;
-  setTime(d: Date);
+  setTime(d: Date): void;
 }
-
 class Clock implements ClockInterface {
   currentTime: Date;
-  setTime(d: Date) {
+  setTime(d: Date): void {
     this.currentTime = d;
   }
-    constructor(h: number, m: number) { }
+  // in ES6 the field can only be defined in constructor
+  constructor(h: number, m: number) { }
+}
+let myClock: Clock = new Clock(1, 3);
+
+//7. The multiple implements
+interface Alarm {
+  alert();
+}
+interface Light {
+  lightOn();
+  lightOff();
+}
+class Car implements Alarm, Light {
+  alert() {
+    console.log('Car alert');
+  }
+  lightOn() {
+    console.log('Car light on');
+  }
+  lightOff() {
+    console.log('Car light off');
+  }
 }
 ```
 ## 4. Class 
@@ -206,7 +255,7 @@ class Clock implements ClockInterface {
 1. Basic structure
     ```typescript
     class Greeter {
-      greeting: string;
+      greeting: string;// in ES6 the field can only be defined in constructor
       kiss?: boolean;
       constructor(message: string) {
         this.greeting = message;
@@ -356,8 +405,10 @@ class Clock implements ClockInterface {
 ## 5. Function 
 A function’s type has the same two parts: the type of the arguments and the return type. 
 ```typescript
-let myAdd: (x: number, y: number)=>number;//Arrow function
-function yourAdd(x: number, y: number): number { return x+y; };
+let myAdd = (x: number, y: number): number => (x+y);//Arrow function
+function yourAdd(x: number, y: number): number { 
+  return x+y; 
+};
 ```
 
 ```typescript
@@ -373,7 +424,7 @@ function readFile(file: string, callback: (err: Error | null, data: Buffer) => v
 
 // use **type** define callback
 type CallbackFunction = (err: Error | null, data: Buffer) => void;//that's only an interface
-function readFile(file: string, callback: CallbackFunction) {
+function readFile(file: string, callback: CallbackFunction): void{
   fs.readFile(file, callback);
 }
 
@@ -384,6 +435,20 @@ interface CallbackFunction {
 function readFile(file: string, callback: CallbackFunction) {
   fs.readFile(file, callback);
 }
+
+//arrow funtion
+const add = (x: number, y: number): number => (x+y);
+console.log(add(1,2));
+
+const add1 = (x: number): void => {console.log(x+1)};
+add1(10);
+
+//use the rest parameters
+function buildName(firstName: string, ...restOfName: string[]) { //as an array
+    return firstName + " " + restOfName.join(" ");
+}
+
+let employeeName = buildName("Joseph", "Samuel", "Lucas", "MacKinzie");
 ```
 
 TS also allows overloads
@@ -486,7 +551,6 @@ class Greeter {
 
 ```
 
-
 ## 7. Used in node.js
 
 1. Module
@@ -503,12 +567,36 @@ class Greeter {
     ```
     ```ecmascript 6
     import {firstName, lastName, year} from './profile';
-    import * as circle from './circle';
+    //the name must be the same as the origin file, or use 'as'
+    
+    import { lastName as surname } from './profile';
     ```
 * In TS:
     You cannot use third-party module directly.
     Add **@types/modulename** 
     ```bash
     npm install @types/express --save
+    npm install --save-dev @types/jquery 
     ```
- 
+## 8. Generics
+For the type, we are not sure
+```typescript
+function createArray<T>(length: number, value: T): Array<T> {
+  let result = [];
+  for (let i = 0; i < length; i++) {
+    result[i] = value;
+  }
+  return result;
+}
+
+createArray<string>(3, 'x'); // ['x', 'x', 'x']
+createArray<number>(2, 6);
+```
+## 9. With ES6
+```typescript
+let b: Boolean = new Boolean(1);
+let e: Error = new Error('Error occurred');
+let d: Date = new Date();
+let r: RegExp = /[a-z]/;
+// other internal defined type: Document、HTMLElement、Event、NodeList 
+```

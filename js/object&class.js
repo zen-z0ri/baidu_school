@@ -10,7 +10,6 @@ var obj1 = { fieldA,
             'age': 23}; //{ fieldA: 'bar', name: 'foo', age: 23 }
 console.log(obj1);
 
-
 /**
  * In commonJS is equal
  */
@@ -87,12 +86,10 @@ class Circle {
     this.r = r;
   }
   get getX() {
-    console.log(this.x);
     return this.x;
   }
-  set setX(val) {
-    this.x = val;
-    console.log('setter: '+val);
+  set setX(_x) {
+    this.x = _x;
   }
   info (){
     return console.log('x: '+this.x+'; '+'y: '+this.y+'; '+'r: '+this.r+'; ');
@@ -108,6 +105,7 @@ inst.info();
 
 /**
  *  key word      'static'
+ *  in ES6, there is no static field, only static method
  */
 console.log('**************static**************');
 class Foo {
@@ -154,7 +152,7 @@ class A {
   constructor() {
     this.x = 1;
   }
-  print() {
+  print() { //the method without funtion keywords
     console.log(this.x);
   }
 }
@@ -181,6 +179,7 @@ class A1 {
 class B1 extends A1 {
   get m() {
     return super.p;  //should change to this.p!!!!!
+    // return this.p
   }
 }
 

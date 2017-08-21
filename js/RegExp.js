@@ -42,7 +42,6 @@ console.log(res2_2);
 console.log(res3_2);
 console.log(res4_2);
 
-
 /**
  * ii) pattern.test(string)
  * Return to a boolean type

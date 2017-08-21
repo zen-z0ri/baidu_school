@@ -8,9 +8,13 @@ let a = [];
 let b = ["ss", 2, 5];
 let c = new Array();
 var d = new Array("bob", "alice", "chris");
-var e = Array.of(1, 2, 3,...[1,3,3]); //[ 1, 2, 3, 1, 3, 3 ]
-var f = Array.from("fdsfsd");
-
+var e = Array.of(...[1,3,3]); //[ 1, 2, 3 ]
+console.log(e);
+var f = Array.from("fdsfsd");// get a arry from any structure with a iterator interface
+console.log(f);
+var g = [, , 3, 4, ,];
+console.log(Array.from(g));
+Array(3).fill(4);                // [4, 4, 4]
 
 /**
  * to check if it's an array
@@ -98,7 +102,7 @@ console.log('***********.reverse()***********');
 //return to the reverse Array
 console.log('before:');
 console.log(b);
-console.log('afther:');
+console.log('after:');
 b.reverse();
 console.log(b);
 /**
@@ -110,13 +114,13 @@ console.log(b);
  *    in js6 we use
  *       let a = Array.from(s)
  *
- * 2. Array to String with no ','   a,join('')
+ * 2. Array to String with no ','   a.join('')
  *
  */
 
 
 /**
- * v) any array-like object or iterable like Set and Map
+ * v) any array-like object or **with iterator interface** like Set and Map
  *    or DOM
  *    let ps = document.querySelectorAll('p');
  *    Array.from(ps).forEach(function (p) {
@@ -125,13 +129,15 @@ console.log(b);
  */
 console.log('***********Array.from()***********');
 var iterableObj = {
-    length: 3,
-    0: 's',
-    1: 'i',
-    2: 't'
+  length: 3,
+  0: 's',
+  1: 'i',
+  2: 't'
 };
 console.log(Array.from(iterableObj));
-
+//from from  a set to array
+const items = new Set([1, 2, 3, 4, 5]);
+const array = Array.from(items);
 
 /**
  * vi) sort() --> only sort the String value, so if you want to sort num
@@ -179,7 +185,7 @@ console.log('***********.splice()***********');
 
 /**
  * x) 1. find(callback) find the **first element** that satisfy condition
- *    2. findIndex(ele) find the **first idex** of a ele
+ *    2. findIndex(ele) find the **first idex** of a element
  *    3. indexOf() return the indexof ele
  *      can be used in String
  *    4. includes(ele) return boolean if includes
@@ -211,6 +217,10 @@ console.log([1, 4, -5, 10].find((n) => (n < 0)));
  *      --> return a single a value
  *      accept five perameter: accumulator, ele,  idx, and array,  and
  *      initial value
+ * All these method will ignore the empty position of the array.
+ * replace the empty to undefined : use .from()
+ * Array.from(['a',,'b'])
+ * [ "a", undefined, "b" ]
  */
 
 
@@ -232,7 +242,7 @@ console.log(d);
 
 console.log('***********.forEach()***********');
 d.forEach(
-    (ele, idx, array) => {array[idx] = ele + 10;}
+  (ele, idx, array) => {array[idx] = ele + 10;}
 ); //??
 // d.forEach(ele => ele+=10);//?
 console.log(d);
@@ -242,18 +252,19 @@ console.log(d.reduce((acc, ele) => (acc+ele)));
 var arr = [1, [[2, 3], 4], [5, 6, [7]]];
 
 const flatten =
-    arr => arr.reduce( //reduce return a single value
-        (acc, val) =>
-            acc.concat(Array.isArray(val) ? flatten(val) : val)
-        , []
-    );
+  arr => arr.reduce( //reduce return a single value
+    (acc, val) =>
+      acc.concat(Array.isArray(val) ? flatten(val) : val)
+    , []
+  );
 
 var result = [];
 function flat(arr) {
   arr.forEach((ele, idx) => //forEach actually no return
-      {Array.isArray(ele) ? flat(ele) : result.push(ele) }
+    {Array.isArray(ele) ? flat(ele) : result.push(ele) }
   );
   return result;
 }
 
 console.log(flatten(arr));
+console.log(flat(arr));

@@ -46,12 +46,12 @@ console.log('***********************');
 //just like JAVA the non- primitive data type use the
 //pointer(reference) to path value
 class Student{
-    constructor() {
-        this.id = "123";
-    }
+  constructor() {
+    this.id = "123";
+  }
 }
 const changeID = (objA) => {
-    objA.id = 'wow';
+  objA.id = 'wow';
 }
 let stuA = new Student();
 console.log(stuA.id);

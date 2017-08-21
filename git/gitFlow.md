@@ -41,6 +41,7 @@ When you are using github, the work flow is shown as below:
  ```$ git add . ``` 	   // add all files in current dir
 2. ```$ git rm [file1] [file2] ...``` //delete the files and make the operation to the stage
 <br />```$ git rm --cached [file1] [file2] ...``` //just **stop tracking** the file 
+<br />```git push```// remove the remote file
 3. ```$ git mv [name1] [name2]```//change the name and make the operation to the stage
 4. To delete the local commits: 
     * ```bash
@@ -50,8 +51,8 @@ When you are using github, the work flow is shown as below:
      * ```bash
         $ git reset --hard [commit] // to the commit you like in local
         $ git push --force origin master //delete remote
-     ``` 
-
+     ```
+    
 ## 6. Information
 1. ```$ git status ``` //show the information of current status `most use one!`, 
 2. ```$ git log``` // show the commit history of current branch

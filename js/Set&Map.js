@@ -91,6 +91,7 @@ let a = new Set([1, 2, 3]);
 let b = new Set([4, 3, 2]);
 // union
 let union = new Set([...a, ...b]);// Set {1, 2, 3, 4}
+// **spread operator** and **for of** can be used in iterator: array, string, object, map, set
 // intersect
 let intersect = new Set([...a].filter(x => b.has(x)));// Set {2, 3}
 // difference
@@ -153,6 +154,7 @@ const newMap = new Map([
  [2, 'two'],
  [3, 'three'],
 ]);
+//! An extended operator can be used whenever an object with an **Iterator interface**   is used
 console.log([...newMap.keys()]);// [1, 2, 3]
 console.log([...newMap.values()]);// ['one', 'two', 'three']
 console.log([...newMap.entries()]);// [[1,'one'], [2, 'two'], [3, 'three']]

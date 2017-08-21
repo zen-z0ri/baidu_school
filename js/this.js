@@ -6,20 +6,21 @@
  * ONLY think about the this inside the function
  * 1. Normal function
  *    i) 'strict model'： undefined
- *        // can't use this
+ *        // can't use this, this haven't bound to any object
  *    ii) 'not strict model': global
  *        // When we using this inside the Normal function,
- *        // it will bind to global object\
+ *        // it will automatically bind to global object
  *        Node: global
  *        browser: window
  * 2. Constructor： the instance of the object
  * 3. Object's method：the object
- * 4. Anonymous	functions or innner function: undefined, 'this' detached
+ * 4. Anonymous	functions or inner function of a class: undefined !!!!
  * 5. Arrow function: static scope
  *
  *
  * **this** is actually a binding that is made when a function is invoked,
  * and what it references is determined entirely by where the function is called.
+ * (it's not static)
  *
  * BUT: in Arrow function **this** is the **static scoped**;
  *
@@ -43,9 +44,15 @@
  *  }
  *  f2() === undefined;
  */
+function f2() {
+  'use strict'; // see strict mode
+  return this;
+}
+console.log(f2() === undefined);
+
 console.log("****************no strict*****************");
 count = 1; // global level
-foo.count = 2
+foo.count = 2;
 function foo(){
   // inside the foo, this represent the global
   console.log(this.toString());//Under function using this, it points to the **global**
@@ -152,7 +159,7 @@ es5();
 //   outputList()	{
 //      // 'this' point to the instance, ok
 //     this.toppings.forEach(function(topping,	i)	{
-//       //	`this` will be undefined cause error
+//       //	`this` will be undefined cause error: in a Anonymous function
 //       console.log(0,	i	+	'/'	+	this.toppings.length);
 //       ed
 //     });
@@ -167,7 +174,7 @@ es5();
 //   }
 //   outputList()	{
 //     this.toppings.forEach((topping,	i)	=>	{
-//	    // `this`	works!
+// 	    // `this`	works!
 //       console.log(topping,	i	+	'/'	+	this.toppings.length)
 //     });
 //   }
@@ -218,19 +225,37 @@ es5();
 //   // The Person() constructor defines `this` as an instance of itself.
 //   this.age = 0;
 //   console.log(this===global);
-//   function growUp() {
+//   console.log(this);// this in a class, refer to the object
+//   function growUp() {           //change it to: const growUp = () => {
+//     this.age += 1;
 //     // In non-strict mode, the growUp() function defines `this`
 //     // as the global object, which is different from the `this`
 //     // defined by the Person() constructor.
-//     console.log(++this.age);
+//     console.log(this.age);
 //   }
 //   growUp();
+//   this.age += 16;
+//   console.log(this.age);
 // }
 // console.log("*************Person as a object*************")
 // let p = new Person();
-
 /**
- * iii)
+ *  iii)
+ */
+// class Person {
+//   constructor (){
+//     this.age = 0;
+//   }
+//   growUp(){
+//     this.age +=16;
+// 	  console.log(this.age);
+//   }
+// }
+// console.log("*************Person as a class*************")
+// let p = new Person();
+// p.growUp();
+/**
+ * iv)
  */
 // function Person() {
 //   // The Person() constructor defines `this` as an instance of itself.
