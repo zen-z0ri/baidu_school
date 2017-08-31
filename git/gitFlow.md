@@ -1,5 +1,5 @@
 #	This is a git notes that learn git by using it.
-The referrence:
+The reference:
 1. https://git-scm.com/docs/
 2. https://www.atlassian.com/git/tutorials/learn-git-with-bitbucket-cloud
 3. http://www.techug.com/post/git-cheat-sheet.html
@@ -27,14 +27,16 @@ When you are using github, the work flow is shown as below:
 
 <img src="./bg2015080501.png" width="390"/>
 
-1. Fork others' work on github
+1. Fork other's work on github
 2. ```$ mkdir ./path``` //create the working path
 3. ```$ git init``` 
 4. ```$ git remote add origin [url]```//or replace 2,3,4 steps with ```$ git clone```
-5. ```$ git checkout -b [My Branch]```//initial a new branch from the master
+5. ```$ git checkout -b [My Branch]```//initial your new branch from the master
 6. Make changes
-7. ```$ git add .```, ```$ git commit -m "XXX" ```...
-8. 
+7. ```$ git remote add upstream [upstream address]``` // if you clone from you github, it will generate automatically
+8. ```$ git add .```, ```$ git commit -m "XXX" ```...
+9. ```$ git remote update upstream```
+10. ```$ git push origin master```
 
 ## 5. Add or remove files
 1. ```$ git add [file1] [file2] ...```<br/>
@@ -81,8 +83,9 @@ When you are using github, the work flow is shown as below:
 
 1. ```$ git remote -v ```//show the remote information
 2. ```$ git remote add [name] [url]```
-3. ```$ git pull [remote] [branch]```//==fetch + merge
-4. ```$ git push [remote(origin)] [remoteBranch]:[branch]```
+3. ```$ git pull [remote(origin)] [branch]```//==fetch + merge some remote branch to current local branch
+4. ```$ git push [remote(origin)] [localBranch]:[remoteBranch]``` //push somelocal branch to remote branch
+5. ```$ git push origin :[branch]```// delete the remote branch
 
 ## 10. Detached HEAD
 
