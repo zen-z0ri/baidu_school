@@ -12,6 +12,7 @@
  * 3. (x, y, z) => { ... } // Multiple arguments
  *
  * 4. (() => { ... })() // Immediately-invoked function expression
+ * 5. (x = 21) => { ... } // with the default value
  */
 const functionName = (pA, pB) => (pA+pB);
 console.log(functionName(1, 2));
@@ -57,6 +58,10 @@ let stuA = new Student();
 console.log(stuA.id);
 changeID(stuA);
 console.log(stuA.id);
-/**
- * High-level function
- */
+
+console.log('***********defualt value************')
+const AddTwo = (x = 21, y = 12) => (x+y);
+
+console.log(AddTwo());
+console.log(AddTwo(1, 2));
+

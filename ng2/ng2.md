@@ -29,11 +29,38 @@ npm start
 
 ##2. The files
 
-<img src= "./.Overall_Structure.png" />
-<img src= "./.Src_Structure.png" />
-
-<img src= "./.FileUsage1.png" />
-<img src= "./.FileUsage2.png" />
-<img src= "./.FileUsage3.png" />
-
+![](Overall_Structure.png)
+![](Src_Structure.png)
+------------------------
+![](FIleUsage1.png)
+![](FileUsage2.png)
+![](FileUsage3.png)
+-----------------------
 ##3.
+
+For angular:
+
+
+```bash
+npm install -g @angular/cli
+
+ng new myapp
+cd ./myapp
+ng serve
+
+```
+
+For ionic & cordova:
+```bash
+npm install -g ionic cordova
+
+ionic start myapp
+cd ./myapp
+ionic serve
+
+ionic cordova platform add android
+ionic cordova emulate android
+
+ionic cordova platform add browser
+ionic run browser
+```

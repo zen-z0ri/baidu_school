@@ -9,6 +9,19 @@
 let a = new String("Hello world, hello javascript");
 let b = 'Hello node.js and FP';
 /**
+ *  Template string
+ *  ES6 introduces a new type of string literal that is marked
+ *  with back ticks (`).
+ *  These string literals can include newlines, and there is a string
+ *  interpolation for inserting variables into strings:
+ */
+let name = 'Sam';
+let age = 42;
+
+console.log(`hello my name is ${name}, and I am ${age} years old`);
+console.log('hello my name is ${name}, and I am ${age} years old');
+
+/**
  * i) charAt(idx) return the character at idx
  *      Array[idx]
  *      Array.from(str)[idx]

@@ -52,7 +52,7 @@ Use type annotations for declaration
          // Initialize it
          x = ["hello", 10, 11];
          // the type of the array must belong to any type of tuple
-         x[3] = boolean; //error
+         x[3] = true; //error
         ```
     * enum 
         ```typescript

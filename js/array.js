@@ -8,13 +8,17 @@ let a = [];
 let b = ["ss", 2, 5];
 let c = new Array();
 var d = new Array("bob", "alice", "chris");
-var e = Array.of(...[1,3,3]); //[ 1, 2, 3 ]
-console.log(e);
-var f = Array.from("fdsfsd");// get a arry from any structure with a iterator interface
+var e = Array.of(...[1,3,3]); //[ 1, 3, 3 ]
+console.log(e.concat(d));
+var f = Array.from("fdsfsd");// get a array from any structure with a iterator interface
 console.log(f);
-var g = [, , 3, 4, ,];
+var g = [ , , 3, 4, , ,];
+console.log("The lenth of g " + g.length);
 console.log(Array.from(g));
+console.log(g);
 Array(3).fill(4);                // [4, 4, 4]
+let h = [...b, ..."dsad"];
+console.log('h = '+ h);
 
 /**
  * to check if it's an array
@@ -149,7 +153,7 @@ console.log('String value');
 console.log(c.sort());
 console.log('use callback to fix it for number');
 console.log(c.sort((x, y) =>
-    ((x<y)?-1:1)
+    (x<y)?-1:1
 ));
 
 
@@ -246,6 +250,10 @@ d.forEach(
 ); //??
 // d.forEach(ele => ele+=10);//?
 console.log(d);
+console.log("g = " + g);
+console.log("******forEach will gap the uninitialized value in a array*******")
+g.forEach( ele => console.log(ele));
+
 
 console.log('***********.reduce()***********');
 console.log(d.reduce((acc, ele) => (acc+ele)));
