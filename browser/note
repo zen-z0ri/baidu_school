@@ -1,4 +1,6 @@
 幂等
-equals == 
+equals ==  string object
 reference type jvm
 serialization 
+instanceof
+hash
